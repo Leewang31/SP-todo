@@ -1,0 +1,148 @@
+* {
+    margin: 0;
+}
+
+#root {
+    --main--bg--color: #CEC7C0;
+    --main--hover--color: #938C86;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+}
+
+.App {
+    width: 1440px;
+    height: 1024px;
+    background-color: var(--main--bg--color);
+    padding: 20px 120px 10px 120px;
+}
+
+.header {
+
+}
+
+.MainArea {
+    display: flex;
+    flex-direction: row;
+}
+
+.header-title-h1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 120px;
+    font-weight: bold;
+}
+
+.header-title-hr-bold {
+    border: 0px;
+    border-top: 5px solid #000000;
+}
+
+.header-title-hr {
+    border: 0px;
+    border-top: 1px solid #000000;
+    margin-top: 8px;
+}
+
+.HeaderDate-div {
+    height: 25px;
+    display: flex;
+    flex-direction: row;
+}
+
+.HeaderDate-time {
+    position: absolute;
+    margin-left: 20px;
+}
+
+.HeaderDate-edit {
+    display: flex;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0%);
+}
+
+.HeaderDate-date {
+    margin: 0px 10px 0px 10px;
+}
+
+.side {
+    flex-grow: 1;
+    padding: 20px;
+}
+
+.side-title-hr {
+    border: 0px;
+    border-top: 2px solid #606060;
+    margin-top: 15px;
+    width: 100%;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0%);
+}
+
+.side-title-li {
+    list-style: none;
+}
+
+.side-todo {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+    margin: 0px 20px 0px 20px;
+    border-radius: 8px;
+}
+
+.side-todo-checkbox{
+    margin: 40px;
+}
+input[type="checkbox"] {
+    display: none;
+}
+
+input[class="side-todo-checkbox"] + label {
+    margin: 20px;
+    display: flex;
+    width: 25px;
+    height: 25px;
+    border: 3px solid #707070;
+    position: relative;
+}
+
+input[class="side-todo-checkbox"]:checked + label::after {
+    content: '✔';
+    font-size: 20px;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.side-todo-hr{
+    border: 0px;
+    width: 87%;
+    border-top: 2px solid #606060;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0%);
+}
+.side-todo-delete{
+    margin-right: 10px;
+}
+.side-todo-create{
+    width: 300px;
+    height: 200px;
+    background: var(--main--hover--color);
+    position: relative;
+    left: 50%;
+    transform: translate(-50%,0%);
+    border-radius: 10px;
+}
+.body {
+    flex-grow: 10;
+}

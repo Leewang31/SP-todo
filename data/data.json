@@ -1,0 +1,31 @@
+{
+  "todos": [
+    {
+      "id": 1,
+      "todo": "6시 기상",
+      "isDone": true
+    },
+    {
+      "id": 2,
+      "todo": "아침 식사하기",
+      "isDone": false
+    },
+    {
+      "id": 3,
+      "todo": "늦지 않게 자기",
+      "isDone": false
+    },
+    {
+      "todo": "hello",
+      "isDone": false,
+      "id": 4
+    }
+  ],
+  "profile": [
+    {
+      "id": 1,
+      "name": "Leewnag31",
+      "body": "Dream as if you'll live forever. Live as if you'll die today."
+    }
+  ]
+}
