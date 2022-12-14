@@ -1,20 +1,37 @@
 import React, {useState} from 'react'
-import {TodoDelete} from "./SideStyleComponent";
-import {fetchDelete} from "../../util/api";
+import {TodoDelete, TodoEditSave} from "./SideStyleComponent";
+import {fetchDelete, fetchPut} from "../../util/api";
 
 const SideTodo = ({id, isChecked, todo}) => {
     const [isCheck, setIsCheck] = useState(isChecked);
+    const [textEdit, setTextEdit] = useState(false);
+    const [text, setText] = useState(todo);
     const onDelete = (e) => {
         e.preventDefault();
         fetchDelete('http://localhost:3001/todos/', id)
     }
     const onCheck = (e) => {
-        setIsCheck(!isCheck)
-        // ! 체크여부 업데이트
+        e.preventDefault();
+        const data = {
+            "id": id,
+            "todo": todo,
+            "isDone": !isChecked,
+        }
+        fetchPut('http://localhost:3001/todos/', id, data)
     }
-    const onText = ()=>{
-        alert('텍스트 업데이트 예정')
-        // ! 텍스트 업데이트
+    const onText = () => {
+        setTextEdit(true)
+    }
+    const nonText = (e) => {
+        setTextEdit(false)
+        e.preventDefault();
+        const data = {
+            "id": id,
+            "todo": text,
+            "isDone": isChecked,
+        }
+        fetchPut('http://localhost:3001/todos/', id, data)
+
     }
 
     return (
@@ -22,7 +39,12 @@ const SideTodo = ({id, isChecked, todo}) => {
              style={isCheck ? {"background-color": "var(--main--hover--color)"} : {"background-color": "var(--main--bg--color)"}}>
             <input className='side-todo-checkbox' type='checkbox'
                    checked={isCheck}/><label htmlFor="side-todo-checkbox" onClick={onCheck}></label>
-            <span className='side-todo-text' onClick={onText}>{todo}</span>
+            <span className='side-todo-text' onClick={onText}>
+                {textEdit ? <input type='text' value={text} onChange={(e) => {
+                    setText(e.target.value)
+                }}/> : <input type='text' value={todo} disabled/>}
+            </span>
+            {textEdit ? <TodoEditSave onClick={nonText}><img src='/img/done_outline.svg'/></TodoEditSave> : <div/>}
             <TodoDelete onClick={onDelete}>
                 <img src='/img/close.svg'/>
             </TodoDelete>

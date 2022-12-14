@@ -1,7 +1,8 @@
+import BodyPercent from "./BodyPercent";
 const Body = () => {
     return (
         <div className='body'>
-            <h1>Body</h1>
+            <BodyPercent/>
         </div>
     )
 }

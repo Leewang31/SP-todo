@@ -26,3 +26,17 @@ export const fetchPost =(url, data)=>{
             console.error('Error', error);
         })
 }
+export const fetchPut =(url, id,data)=>{
+    fetch(`${url}${id}`, {
+        method: "PUT",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify(data)
+    })
+        .then(() => {
+            alert('수정되었습니다')
+            window.location.href = BASE_URL;
+        })
+        .catch((error) => {
+            console.error('Error', error);
+        })
+}

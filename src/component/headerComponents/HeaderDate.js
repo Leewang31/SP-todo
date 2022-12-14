@@ -33,14 +33,14 @@ const HeaderDate = () => {
     let minutes = today.getMinutes();  // 분
     let ampm;
     if (hours > 12) {
-        ampm = 'pm';
+        ampm = 'PM';
         hours %= 12;
     } else {
-        ampm = 'am';
+        ampm = 'AM';
     }
     return (
         <div className='HeaderDate-div'>
-            <span className='HeaderDate-time'>{`${ampm} ${hours} : ${minutes}`}</span>
+            <span className='HeaderDate-time'>{`${ampm}  ${hours} : ${minutes}`}</span>
             <span className='HeaderDate-edit'>
                 <ArrowButton ><img src='/img/arrow_back.svg'/></ArrowButton>
                 <span className='HeaderDate-date'>{`${year} - ${month} - ${date} - ${day}`}</span>
