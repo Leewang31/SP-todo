@@ -14,6 +14,11 @@
       "id": 3,
       "todo": "늦지 않게 자기",
       "isDone": false
+    },
+    {
+      "id": 4,
+      "todo": "오",
+      "isDone": true
     }
   ],
   "profile": [
